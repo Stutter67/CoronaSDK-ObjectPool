@@ -49,7 +49,7 @@ objectPool:clearObjectPool();
 
 清空池
 ---------------------------
-`pool:clearObject()`: 清空池对象,释放所有的显示对象。
+`pool:clearObjectPool()`: 清空池对象,并释放所有的显示对象。
 
 用法
 =====
