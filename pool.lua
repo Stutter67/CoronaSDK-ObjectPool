@@ -46,6 +46,9 @@ function M:getObject( objectName )
         object = self.objectPool[ objectName ]:remove( number );   -- 有对象则从池中取出该对象
     end
     object.alpha = 1;                    --- 显示图像
+    if object.getObjectMethod then       --- 取出对象时执行的函数：例如上方的显示对象就可以写在此函数中
+       object.getObjectMethod();
+    end
     return  object;
 end
 
@@ -54,6 +57,9 @@ end
 ---@param name string 需要存放到对象池中对应分类的标识，如果没有 object 没有包含name属性，则需要传入参数，否则会报错。
 function M:putObject( object, name )
     local name = name or object.name;
+    if object.putObjectMethod then       --- 回收对象时执行的函数：例如下方的消除对象就可以写在此函数中
+       object.putObjectMethod();
+    end
     object.alpha = 0;                         --- 消除图像
     timer.performWithDelay(1 ,function ()     --- 延迟回收图像[在Corona中，发生碰撞事件时无法对对象进行操作]
         self.objectPool[ name ]:insert( object:removeSelf() );
