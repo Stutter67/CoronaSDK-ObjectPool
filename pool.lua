@@ -24,7 +24,7 @@ end
 ---@param poolSize number 需要在池中创建的对象数。[未设置默认值为 4]
 ---@param name string 子对象池的标识符[如果未设置会默认使用对象的name属性]
 ---@return GroupObject 对象池对象
-function M:createPool( newObject, poolSize, name )
+function M:addSonPool( newObject, poolSize, name )
     name = name or newObject().name;                            -- 按：参数，name属性的顺序进行取值
     self.objectPool[ name ] = display.newGroup();               -- 根据对象的不同name属性在对象池中归类为不同的子池
     self.method[ name ] = newObject;                            -- 在方法池中存入对应的新建对象的方法
