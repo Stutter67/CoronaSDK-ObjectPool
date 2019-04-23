@@ -2,7 +2,7 @@
 CoronaSDK的对象池函数
 ========
 基于@treamology/pool.lua修改的CoronaSDK(version 2017.3184)对象池函数。<br/>
-
+通过该模块可以管理所有的显示对象的创建/使用/回收/销毁。
 
 例子
 =======
