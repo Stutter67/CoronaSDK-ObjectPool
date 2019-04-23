@@ -1,9 +1,9 @@
 -- CoronaSDK 2017.3184
 --[[ 
  目前存在的问题：
- 如果使用Lua{}表作为对象池,使用函数setmetatable()设置元表__index会出现问题。
- 猜测原因:可能是由于DisplayObject基于CoronaPrototype的对象，因此不能直接通过__index覆盖元方法。
- 由于这里只需要存放DisplayObject对象，所以直接使用GroupObject充当容器代替{}表。
+ 如果使用 Lua{}表 作为对象池,使用函数setmetatable()设置元表 __index 会出现问题。
+ 猜测原因:可能是由于 DisplayObject 基于 CoronaPrototype 的对象，因此不能直接通过 __index 覆盖元方法。
+ 由于这里只需要存放 DisplayObject 对象，所以直接使用 GroupObject 来充当容器代替 Lua{}表 。
  如果需要存放多种类型的对象可以参考CoronaSDK手册:Documentation▸API Reference▸type▸CoronaPrototype▸setExtension说明。有兴趣的可以自己去尝试修改
 --]]
 
